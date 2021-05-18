@@ -5,14 +5,24 @@
     android:id="@+id/relative_parent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="10dp"
     android:layout_marginTop="7dp"
-    android:layout_marginEnd="10dp">
+    android:background="@drawable/round_edges">
+
+
+    <ImageView
+        android:id="@+id/play"
+        android:layout_width="40dp"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="5dp"
+        android:src="@drawable/ic_play_circle" />
 
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_toEndOf="@id/play"
         android:textSize="20sp"
         android:textStyle="bold"
         tools:text="Bad Liar" />
@@ -22,35 +32,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:layout_toEndOf="@id/play"
         tools:text="Imagine Dragons" />
 
-    <ImageView
-        android:id="@+id/bookmark"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_alignEnd="@id/like_count"
-        android:layout_centerHorizontal="true"
-        android:layout_marginEnd="20dp"
-        app:srcCompat="@drawable/ic_bookmark" />
-
-    <TextView
-        android:id="@+id/like_count"
-        android:layout_width="20sp"
-        android:layout_height="20sp"
-        android:layout_alignParentEnd="true"
-        tools:text="10" />
-
 
     <ImageView
-        android:id="@+id/play"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginTop="2dp"
+        android:layout_toLeftOf="@id/play_count"
         app:srcCompat="@drawable/ic_play" />
 
     <TextView
@@ -59,7 +53,6 @@
         android:layout_height="20sp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
         android:layout_marginTop="2dp"
         tools:text="10" />
 

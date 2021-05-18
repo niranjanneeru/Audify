@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.codingcrew.audify.R;
 import com.codingcrew.audify.adapter.AudioRecyclerViewAdapter;
+import com.codingcrew.audify.adapter.CategoryRecyclerViewAdapter;
 import com.codingcrew.audify.model.Audio;
+import com.codingcrew.audify.model.Category;
 
 import java.util.ArrayList;
 
@@ -27,7 +29,10 @@ public class HomeFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     ArrayList<Audio> mAudios;
-    AudioRecyclerViewAdapter adapter;
+    ArrayList<Category> categories;
+    AudioRecyclerViewAdapter audioRecyclerViewAdapter;
+    CategoryRecyclerViewAdapter categoryRecyclerViewAdapter;
+    RecyclerView audioRecyclerView, categoryRecyclerView;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -68,16 +73,28 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        RecyclerView recyclerView = view.findViewById(R.id.list_music_recycler_view);
+        audioRecyclerView = view.findViewById(R.id.list_music_recycler_view);
+        categoryRecyclerView = view.findViewById(R.id.category_recycler_view);
+
+
         mAudios = new ArrayList<>();
+        categories = new ArrayList<>();
         mAudios.add(new Audio(1, 2.00f, "Imagine", "https:google.com", "Bad Liar", "https:google.com", 10, 10));
         mAudios.add(new Audio(1, 2.00f, "Imagine", "https:google.com", "Bad Liar", "https:google.com", 10, 10));
-        adapter = new AudioRecyclerViewAdapter(this.getContext());
+        categories.add(new Category(1, "Melody", "Melody"));
+        categories.add(new Category(1, "Melody", "Melody"));
 
-        adapter.setAudios(mAudios);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        recyclerView.setAdapter(adapter);
+        audioRecyclerViewAdapter = new AudioRecyclerViewAdapter(this.getContext());
+        categoryRecyclerViewAdapter = new CategoryRecyclerViewAdapter(this.getContext());
 
+        audioRecyclerViewAdapter.setAudios(mAudios);
+        categoryRecyclerViewAdapter.setCategories(categories);
+
+        audioRecyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        categoryRecyclerView.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
+
+        categoryRecyclerView.setAdapter(categoryRecyclerViewAdapter);
+        audioRecyclerView.setAdapter(audioRecyclerViewAdapter);
 
 
         return view;

@@ -42,7 +42,6 @@ public class AudioRecyclerViewAdapter extends RecyclerView.Adapter<AudioRecycler
         holder.title.setText(mAudios.get(position).getName());
         holder.artist.setText(mAudios.get(position).getArtist());
         holder.playCount.setText(String.valueOf(mAudios.get(position).getPlayCount()));
-        holder.bookmarkCount.setText(String.valueOf(mAudios.get(position).getLikeCount()));
     }
 
     @Override
@@ -52,8 +51,10 @@ public class AudioRecyclerViewAdapter extends RecyclerView.Adapter<AudioRecycler
 
     public class VIewHolder extends RecyclerView.ViewHolder {
 
-        TextView title, artist, bookmarkCount, playCount;
-        ImageView bookmarkImage, playImage;
+        TextView title;
+        TextView artist;
+        TextView playCount;
+        ImageView playImage;
         RelativeLayout relativeParent;
 
         public VIewHolder(@NonNull View itemView) {
@@ -61,10 +62,8 @@ public class AudioRecyclerViewAdapter extends RecyclerView.Adapter<AudioRecycler
 
             title = itemView.findViewById(R.id.title);
             artist = itemView.findViewById(R.id.artist);
-            bookmarkCount = itemView.findViewById(R.id.like_count);
             playCount = itemView.findViewById(R.id.play_count);
 
-            bookmarkImage = itemView.findViewById(R.id.bookmark);
             playImage = itemView.findViewById(R.id.play);
 
             relativeParent = itemView.findViewById(R.id.relative_parent);
