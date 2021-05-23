@@ -1,14 +1,16 @@
 package com.codingcrew.audify.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import androidx.fragment.app.Fragment;
 
 import com.codingcrew.audify.R;
+import com.codingcrew.audify.activity.SignUpActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -63,6 +65,15 @@ public class ProfileFragment extends Fragment {
 
 
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        Button sign_up_button = view.findViewById(R.id.profile_sign_up);
+        sign_up_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), SignUpActivity.class));
+            }
+        });
+
         return view;
     }
 }

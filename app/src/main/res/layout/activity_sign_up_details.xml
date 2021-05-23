@@ -14,7 +14,7 @@
         <View
             android:id="@+id/view"
             android:layout_width="wrap_content"
-            android:layout_height="150dp"
+            android:layout_height="110dp"
             android:background="@color/wave"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -69,23 +69,46 @@
         <NumberPicker
             android:id="@+id/yearPicker"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:backgroundTint="@color/black"
             android:foregroundTint="@color/black"
             app:layout_constraintTop_toBottomOf="@id/birth_title" />
 
-        <TextView
-            android:id="@+id/address_title"
-            android:layout_width="wrap_content"
+
+        <Button
+            android:id="@+id/get_location"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="Address"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/yearPicker" />
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="10dp"
+            android:text="GET MY ADDRESS"
+            app:layout_constraintTop_toBottomOf="@+id/address_text_field" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/address_text_field"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="10dp"
+            android:hint="Address"
+            android:textColorHint="@color/black"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/black"
+            app:hintTextColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/yearPicker">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/address_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="20" />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
         <Button
@@ -100,7 +123,7 @@
             android:text="Sign Up"
             android:textColor="@color/white"
             app:backgroundTint="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/address_title" />
+            app:layout_constraintTop_toBottomOf="@+id/get_location" />
 
 
         <Button
