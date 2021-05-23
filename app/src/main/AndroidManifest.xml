@@ -29,10 +29,6 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-
-        <activity
-            android:name=".LocationActivity"
-            android:label="@string/title_activity_location"></activity>
         <activity android:name=".activity.SignUpDetailsActivity" />
         <activity android:name=".activity.SignUpActivity" />
         <activity android:name=".activity.MainActivity">
