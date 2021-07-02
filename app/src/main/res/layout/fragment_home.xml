@@ -12,32 +12,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="@font/archivo_narrow_bold"
-        android:text="Categories"
+        android:text="@string/categories"
         android:textSize="30sp"
         android:textStyle="bold" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/category_recycler_view"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/category_fragment"
+        android:name="com.codingcrew.audify.fragment.CategoryFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp" />
-
+        android:layout_height="200dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="@font/archivo_narrow_bold"
-        android:text="Top Rated Songs"
+        android:text="@string/top_rated_songs"
         android:textSize="25sp"
         android:textStyle="bold" />
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_music_recycler_view"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/song_fragment"
+        android:name="com.codingcrew.audify.fragment.SongsFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

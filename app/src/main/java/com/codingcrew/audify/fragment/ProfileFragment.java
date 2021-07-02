@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment;
 
 import com.codingcrew.audify.R;
 import com.codingcrew.audify.activity.SignUpActivity;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,7 +25,9 @@ public class ProfileFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    Button signUpButton, loginButton;
+    TextInputLayout usernameLayout, passwordLayout;
+    TextInputEditText usernameEDT, passwordEDT;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -66,13 +70,33 @@ public class ProfileFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        Button sign_up_button = view.findViewById(R.id.profile_sign_up);
-        sign_up_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), SignUpActivity.class));
+        signUpButton = view.findViewById(R.id.profile_sign_up);
+        loginButton = view.findViewById(R.id.next_button);
+        usernameLayout = view.findViewById(R.id.usernameTextField);
+        passwordLayout = view.findViewById(R.id.passwordTextField);
+        usernameEDT = view.findViewById(R.id.usernameEditText);
+        passwordEDT = view.findViewById(R.id.passwordEditText);
+
+        loginButton.setOnClickListener(view12 -> {
+            String username = usernameEDT.getText().toString();
+            String password = passwordEDT.getText().toString();
+
+            if (username.trim().isEmpty()) {
+                usernameLayout.setError("Empty Credentials");
+                passwordLayout.setError(null);
+                return;
             }
+            if (password.trim().isEmpty()) {
+                usernameLayout.setError(null);
+                passwordLayout.setError("Empty Credentials");
+                return;
+            }
+
+            usernameLayout.setError(null);
+            passwordLayout.setError(null);
         });
+
+        signUpButton.setOnClickListener(view1 -> startActivity(new Intent(getActivity(), SignUpActivity.class)));
 
         return view;
     }

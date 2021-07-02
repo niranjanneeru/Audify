@@ -15,6 +15,8 @@ import com.codingcrew.audify.model.Category;
 
 import java.util.ArrayList;
 
+// TODO: 02-07-2021 DELETE THIS IF NOT REUSED 
+
 public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<CategoryRecyclerViewAdapter.ViewHolder> {
 
     private Context mContext;
